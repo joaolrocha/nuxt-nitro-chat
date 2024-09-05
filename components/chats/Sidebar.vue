@@ -1,10 +1,14 @@
 <script setup lang="ts">
 import { Avatar, AvatarFallback, AvatarImage } from "../ui/avatar";
 
-const { data } = useAuth();
-
+// const { data } = useAuth();
+const data = {
+        name: 'John Doe',  // Using mock data
+        email: 'john.doe@example.com',
+        image: 'https://example.com/johndoe.jpg',
+      }
 const user = computed(() => {
-  return data.value?.user;
+  return data
 });
 </script>
 

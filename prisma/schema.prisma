@@ -9,7 +9,7 @@ generator client {
 }
 
 datasource db {
-  provider = "mysql"
+  provider = "postgresql"
   url      = env("DATABASE_URL")
 }
 
@@ -22,6 +22,9 @@ model Profile {
   groups  Group[]
   members Member[]
 
+  // online Boolean
+  // groupId String
+  
   createdAt DateTime @default(now())
   updateAt  DateTime @updatedAt
 }

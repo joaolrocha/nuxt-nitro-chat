@@ -1,17 +1,17 @@
 import { v2 as cloudinary } from "cloudinary";
-import { getServerSession } from "#auth";
+// import { getServerSession } from "#auth";
 
 export default defineEventHandler(async (event) => {
   try {
-    const session = await getServerSession(event);
+    // const session = await getServerSession(event);
     const body = await readBody(event);
 
-    if (!session) {
-      throw createError({
-        statusCode: 401,
-        statusMessage: "Unauthorized",
-      });
-    }
+    // if (!session) {
+    //   throw createError({
+    //     statusCode: 401,
+    //     statusMessage: "Unauthorized",
+    //   });
+    // }
 
     if (!body.image) {
       throw createError({

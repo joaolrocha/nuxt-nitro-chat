@@ -1,7 +1,8 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
-  devtools: { enabled: true },
+  ssr: false,
+  devtools: { enabled: false },
   modules: [
     "@vueuse/nuxt",
     "@nuxtjs/tailwindcss",
@@ -12,15 +13,32 @@ export default defineNuxtConfig({
     "@pinia/nuxt",
     "@pinia-plugin-persistedstate/nuxt",
     "@nuxt/icon",
-    "@sidebase/nuxt-auth",
+    // "@sidebase/nuxt-auth",
     "nuxt-emoji-picker",
   ],
-  auth: {
-    provider: {
-      type: "authjs",
-    },
-    globalAppMiddleware: true,
-  },
+  // auth: {
+  //   baseURL: 'api/auth',
+  //   provider: {
+  //     type: "local",
+  //     endpoints: {
+  //       signIn: { path: '/login', method: 'post' },
+  //       signOut: { path: '/logout', method: 'post' },
+  //       // signUp: { path: '/register', method: 'post' },
+  //       getSession: { path: '/session', method: 'get' },
+  //     },
+  //     token: {
+  //       signInResponseTokenPointer: '/token/accessToken'
+  //     },
+  //     session: {
+  //       dataType: {
+  //         id: 'string',
+  //         name: 'string',
+  //         email: 'string',
+  //       },
+  //     },
+  //   },
+  //   globalAppMiddleware: true,
+  // },
   nitro: {
     experimental: {
       websocket: true,

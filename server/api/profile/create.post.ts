@@ -1,4 +1,4 @@
-import { getServerSession } from "#auth";
+// import { getServerSession } from "#auth";
 import prisma from "~/lib/prisma";
 import { v4 as uuidv4 } from "uuid";
 import { MemberRole } from "@prisma/client";
@@ -10,14 +10,15 @@ export default defineEventHandler(async (event) => {
     name,
   }: { name: string; email: string; imageUrl: string } = await readBody(event);
 
-  const session = await getServerSession(event);
+  console.log(email, imageUrl, name)
+  // const session = await getServerSession(event);
 
-  if (!session) {
-    throw createError({
-      statusCode: 401,
-      statusMessage: "Unauthorized",
-    });
-  }
+  // if (!session) {
+  //   throw createError({
+  //     statusCode: 401,
+  //     statusMessage: "Unauthorized",
+  //   });
+  // }
 
   if (!name) {
     throw createError({

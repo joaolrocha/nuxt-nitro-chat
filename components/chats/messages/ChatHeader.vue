@@ -1,4 +1,5 @@
 <script setup lang="ts">
+// import { useAuth } from "#auth"; // Assuming you have this available from Nuxt Auth
 import type { WebSocketStatus } from "@vueuse/core";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
 import { Badge } from "~/components/ui/badge";
@@ -11,9 +12,17 @@ const props = defineProps<{
   status: WebSocketStatus;
 }>();
 
+// const { signOut } = useAuth(); // Get the signOut function from useAuth
+
 const status = computed(() => {
   return props?.status;
 });
+
+console.log(props.group)
+
+// const logout = async () => {
+//   await signOut({ callbackUrl: '/' }); // Optionally redirect to the homepage or login page after logout
+// };
 </script>
 
 <template>
@@ -58,6 +67,7 @@ const status = computed(() => {
       <Button variant="ghost" size="icon" class="rounded-full">
         <Icon name="solar:menu-dots-circle-broken" class="size-6" />
       </Button>
+      <!-- Logout Button -->
     </div>
   </div>
 </template>

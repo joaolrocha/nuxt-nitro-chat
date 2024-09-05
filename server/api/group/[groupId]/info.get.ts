@@ -1,16 +1,16 @@
-import { getServerSession } from "#auth";
+// import { getServerSession } from "#auth";
 import prisma from "~/lib/prisma";
 
 export default defineEventHandler(async (event) => {
   const groupId = getRouterParam(event, "groupId");
 
-  const session = await getServerSession(event);
-  if (!session) {
-    throw createError({
-      statusCode: 401,
-      statusMessage: "Unauthorized",
-    });
-  }
+  // const session = await getServerSession(event);
+  // if (!session) {
+  //   throw createError({
+  //     statusCode: 401,
+  //     statusMessage: "Unauthorized",
+  //   });
+  // }
 
   const group = await prisma.group.findUnique({
     where: {
