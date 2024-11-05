@@ -1,8 +1,14 @@
 <script setup lang="ts">
+import { error } from 'console';
+
 // In prod: check if secure, then use wss://
 const { status, data, send, open, close } = useWebSocket(
-  `ws://localhost:3000/api/websocket`
+  `ws://localhost:3001/api/websocket`
 );
+
+console.log(status, 'STATUS WEB SOCKET')
+
+
 </script>
 
 <template>

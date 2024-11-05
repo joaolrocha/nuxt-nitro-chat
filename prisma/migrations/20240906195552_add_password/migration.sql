@@ -7,6 +7,7 @@ CREATE TABLE "Profile" (
     "name" TEXT NOT NULL,
     "imageUrl" TEXT NOT NULL,
     "email" TEXT NOT NULL,
+    "online" BOOLEAN NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updateAt" TIMESTAMP(3) NOT NULL,
 

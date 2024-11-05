@@ -22,7 +22,7 @@ model Profile {
   groups  Group[]
   members Member[]
 
-  // online Boolean
+  online Boolean
   // groupId String
   
   createdAt DateTime @default(now())

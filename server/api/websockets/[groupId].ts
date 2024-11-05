@@ -8,6 +8,7 @@ const users = new Map<string, { online: boolean }>();
 let room = "group";
 export default defineWebSocketHandler({
   async open(peer) {
+    console.log('PEER: ', peer)
     const groupId = getGroupId(peer);
     room = groupId;
 
@@ -149,6 +150,10 @@ export default defineWebSocketHandler({
       });
     }
 
+    console.log(group, 'Group Object')
+    console.log(group?.members, 'Group Members')
+    console.log(profile?.id, 'Profile ID')
+
     const member = group?.members.find(
       (member) => member.profileId === profile?.id
     );
@@ -201,6 +206,7 @@ async function getGroupInfo(groupId: string) {
 
 function getProfile(peer: Peer) {
   const query = getQuery(peer.url);
+  console.log(query, 'QUERY STRING IN getProfile')
   return query.profileId as string;
 }
 
@@ -214,7 +220,9 @@ async function getProfileInfo(profileId: string) {
 }
 
 function getGroupId(peer: Peer) {
+  console.log(peer, 'peeeeeer')
   const pathParts = peer.url.split("/");
+  console.log(pathParts, 'PATH PARTSSSS')
   const groupdId = pathParts[3].split("?")[0];
   return groupdId;
 }

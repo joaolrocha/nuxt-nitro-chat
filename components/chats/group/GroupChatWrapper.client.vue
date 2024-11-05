@@ -59,7 +59,7 @@ fetchMessages()
 
 // Set up WebSocket connection to handle real-time messages
 const { status, data, send, open, close } = useWebSocket(
-  `ws://localhost:3000/api/websockets/${props?.group?.id}?profileId=${profile?.value?.id}`
+  `ws://localhost:3001/api/websockets/${props?.group?.id}?profileId=${profile?.value?.id}`
 );
 
 // Watch for incoming WebSocket data and update the messages array
